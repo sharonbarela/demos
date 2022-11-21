@@ -48,14 +48,19 @@ export default function Cart({ cart, updateQuantity }) {
 
   return (
     <section id="cart">
-      <h1>{numItemsInCart === 0 ? "Empty, Bruh" :
-       `${numItemsInCart} Item${numItemsInCart > 1 ? "s" : ""} in My Cart`
-      }</h1>
+      <h1>
+        {numItemsInCart === 0
+          ? "Your cart is empty"
+          : `${numItemsInCart} Item${numItemsInCart > 1 ? "s" : ""} in My Cart`}
+      </h1>
       <ul>{cart.map(renderItem)}</ul>
-
       {cart.length > 0 && (
-      <button className="btn btn-primary" onClick={() => navigate("/checkout")}>
-      Checkout </button>
+        <button
+          className="btn btn-primary"
+          onClick={() => navigate("/checkout")}
+        >
+          Checkout
+        </button>
       )}
     </section>
   );
